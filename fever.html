@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Diagnosis Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff0000;
+            font-weight: bold;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #66afe9;
+            outline: none;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .results div {
+            margin-bottom: 10px;
+        }
+        .results img {
+            max-width: 100px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .form-container {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .heading-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .remedy-section {
+            margin-top: 20px;
+        }
+        .remedy-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .remedy-section li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading-image">
+            <h1>Dengue/Malaria/Common Fever Detection by Department of Interdisciplinary Courses in Engineering</h1>
+            <img src="https://github.com/manvindersharma/DICE-Dengue/blob/main/DICE.jpg?raw=true" alt="DICE" />
+        </div>
+        <div class="form-container">
+            <form id="healthForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="fever">Fever (in Fahrenheit):</label>
+                    <input type="number" id="fever" name="fever" required>
+                </div>
+                <div class="form-group">
+                    <label for="tlc">TLC (Total Leukocyte Count):</label>
+                    <input type="number" id="tlc" name="tlc" required>
+                </div>
+                <div class="form-group">
+                    <label for="platelet">Platelet Count:</label>
+                    <input type="number" id="platelet" name="platelet" required>
+                </div>
+                <div class="form-group">
+                    <label for="jointPain">Joint Pain:</label>
+                    <select id="jointPain" name="jointPain" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="headache">Headache:</label>
+                    <select id="headache" name="headache" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rash">Rash:</label>
+                    <select id="rash" name="rash" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nausea">Nausea/Vomiting:</label>
+                    <select id="nausea" name="nausea" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="conditions">Pre-existing Conditions:</label>
+                    <select id="conditions" name="conditions" required>
+                        <option value="">Select</option>
+                        <option value="none">None</option>
+                        <option value="highbp">High Blood Pressure</option>
+                        <option value="asthma">Asthma</option>
+                        <option value="diabetes">Diabetes</option>
+                    </select>
+                </div>
+                <button type="button" onclick="diagnoseAndSubmit()">Submit</button>
+            </form>
+        </div>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        function diagnoseAndSubmit() {
+            const name = document.getElementById('name').value;
+            const gender = document.getElementById('gender').value;
+            const age = parseInt(document.getElementById('age').value);
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const fever = parseFloat(document.getElementById('fever').value);
+            const tlc = parseInt(document.getElementById('tlc').value);
+            const platelet = parseInt(document.getElementById('platelet').value);
+            const jointPain = document.getElementById('jointPain').value === "yes";
+            const headache = document.getElementById('headache').value === "yes";
+            const rash = document.getElementById('rash').value === "yes";
+            const nausea = document.getElementById('nausea').value === "yes";
+            const conditions = document.getElementById('conditions').value;
+
+            let diagnosis = "";
+            let medicines = "";
+            let homeRemedies = "";
+            let indianHomeRemedies = "";
+
+            if (fever > 100.4 && tlc < 4000 && platelet < 150000 && jointPain && rash) {
+                diagnosis = "Possible Dengue";
+                medicines = age < 12 ? "Consult a pediatrician for Acetaminophen dosage." :
+                    "Acetaminophen 500mg every 6-8 hours as needed. Do not exceed 4000mg in 24 hours. Stay hydrated.";
+                homeRemedies = `
+                    1. Rest: Get plenty of bed rest to allow your body to fight the infection.<br>
+                    2. Hydration: Drink at least 8-10 glasses of water daily. Coconut water is excellent for hydration and electrolyte balance.<br>
+                    3. Cool Compress: Apply a cool, damp cloth to the forehead and body to help reduce fever.
+                `;
+                indianHomeRemedies = `
+                    1. Giloy Juice: Boil 1 cup chopped giloy stems in 2 cups water for 15 minutes. Strain and drink half a cup twice daily.<br>
+                    2. Neem Leaves: Boil 10-15 neem leaves in 2 cups water until reduced to half. Drink 1/4 cup twice daily.<br>
+                    3. Papaya Leaf Juice: Blend 2-3 fresh papaya leaves with 1/4 cup water. Strain and drink 2 tablespoons twice daily.
+                `;
+            } else if (fever > 100.4 && tlc < 4000 && platelet < 150000 && nausea) {
+                diagnosis = "Possible Malaria";
+                medicines = age < 12 ? "Consult a pediatrician for ACTs." :
+                    "Artemisinin-based combination therapies (ACTs) as prescribed by a physician.";
+                homeRemedies = `
+                    1. Rest: Allow your body to rest and recover.<br>
+                    2. Hydration: Drink plenty of fluids, especially water and coconut water, to prevent dehydration.
+                `;
+                indianHomeRemedies = `
+                    1. Neem Leaves: Crush 10-15 neem leaves and boil them in 2 cups of water. Drink 1/4 cup twice daily.<br>
+                    2. Ginger Tea: Boil sliced ginger in water to make a tea. Drink once daily.<br>
+                    3. Fenugreek Seeds: Soak 1 teaspoon fenugreek seeds in a glass of water overnight. Drink the water in the morning on an empty stomach.
+                `;
+            } else if (fever > 100.4) {
+                diagnosis = "Common Fever";
+                medicines = age < 12 ? "Consult a pediatrician for Paracetamol dosage." :
+                    "Paracetamol 500mg every 6-8 hours as needed. Do not exceed 4000mg in 24 hours.";
+                homeRemedies = `
+                    1. Rest: Ensure adequate rest and sleep to boost immunity.<br>
+                    2. Hydration: Keep yourself hydrated with water, herbal teas, and broths.<br>
+                    3. Cool Compress: Use a cool, damp cloth on the forehead to reduce fever.
+                `;
+                indianHomeRemedies = `
+                    1. Tulsi Tea: Boil 5-6 tulsi leaves in a cup of water. Add honey for taste. Drink twice daily.<br>
+                    2. Turmeric Milk: Mix 1 teaspoon turmeric powder in warm milk. Add a pinch of black pepper. Drink once daily before bed.<br>
+                    3. Cinnamon Tea: Boil 1 teaspoon cinnamon powder in a cup of water. Strain and drink twice daily.
+                `;
+            } else {
+                diagnosis = "No serious condition detected. Keep monitoring.";
+            }
+
+            document.getElementById('results').innerHTML = `
+                <div>
+                    <h2>Diagnosis: ${diagnosis}</h2>
+                </div>
+                <div>
+                    <h3>Medicines:</h3>
+                    <p>${medicines}</p>
+                </div>
+                <div class="remedy-section">
+                    <h3>Home Remedies:</h3>
+                    <p>${homeRemedies}</p>
+                </div>
+                <div class="remedy-section">
+                    <h3>Indian Home Remedies:</h3>
+                    <p>${indianHomeRemedies}</p>
+                </div>
+            `;
+
+            const data = {
+                name, gender, age, address, city, state, fever, tlc, platelet,
+                jointPain: jointPain ? "yes" : "no",
+                headache: headache ? "yes" : "no",
+                rash: rash ? "yes" : "no",
+                nausea: nausea ? "yes" : "no",
+                conditions, diagnosis, medicines, homeRemedies, indianHomeRemedies
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbw5eO9YbCGerW06iZqD_cjeGSL5ox8RvLeQqOiQsNcrS2IeqcpFSgHWADEsHzQoDK3lcA/exec', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log('Success:', result);
+                alert('Data submitted successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting data.');
+            });
+        }
+    </script>
+</body>
+</html>
