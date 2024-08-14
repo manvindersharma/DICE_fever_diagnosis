@@ -209,8 +209,8 @@
 
             if (fever > 100.4 && tlc < 4000 && platelet < 150000 && jointPain && rash) {
                 diagnosis = "Possible Dengue";
-                medicines = age < 12 ? "Consult a pediatrician for Acetaminophen dosage." :
-                    "Acetaminophen 500mg every 6-8 hours as needed. Do not exceed 4000mg in 24 hours. Stay hydrated.";
+                medicines = age < 12 ? "Consult a Doctor for Acetaminophen dosage." :
+                    "Acetaminophen 500mg every 6-8 hours as needed. Do not exceed 4000mg in 24 hours. Stay hydrated. Also Consult a Doctor";
                 homeRemedies = `
                     1. Rest: Get plenty of bed rest to allow your body to fight the infection.<br>
                     2. Hydration: Drink at least 8-10 glasses of water daily. Coconut water is excellent for hydration and electrolyte balance.<br>
@@ -223,7 +223,7 @@
                 `;
             } else if (fever > 100.4 && tlc < 4000 && platelet < 150000 && nausea) {
                 diagnosis = "Possible Malaria";
-                medicines = age < 12 ? "Consult a pediatrician for ACTs." :
+                medicines = age < 12 ? "Consult a Doctor for ACTs." :
                     "Artemisinin-based combination therapies (ACTs) as prescribed by a physician.";
                 homeRemedies = `
                     1. Rest: Allow your body to rest and recover.<br>
@@ -236,8 +236,8 @@
                 `;
             } else if (fever > 100.4) {
                 diagnosis = "Common Fever";
-                medicines = age < 12 ? "Consult a pediatrician for Paracetamol dosage." :
-                    "Paracetamol 500mg every 6-8 hours as needed. Do not exceed 4000mg in 24 hours.";
+                medicines = age < 12 ? "Consult a Doctor for Paracetamol dosage." :
+                    "Paracetamol 500mg every 6-8 hours as needed. Do not exceed 4000mg in 24 hours. Also Consult a Doctor";
                 homeRemedies = `
                     1. Rest: Ensure adequate rest and sleep to boost immunity.<br>
                     2. Hydration: Keep yourself hydrated with water, herbal teas, and broths.<br>
